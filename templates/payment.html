@@ -1,0 +1,51 @@
+{% extends "style_base.html" %}
+{% block title %}User Page{% endblock %}
+{% block button1 %}Parcels{% endblock %}
+{% block nav %}Recipient{% endblock %}
+{% block hrefbuton1 %}userParcels{% endblock %}
+{% block button2 %}Payment{% endblock %}
+{% block hrefbuton2 %}payment{% endblock %}
+{% block hrefbuton0 %}user{% endblock %}
+{% block content %}
+<div class="container rounded bg-white">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+          <th>Sent From</th>
+        <th>Email</th>
+        <th>Parcel Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th>
+          <th>Status</th>
+          <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in queer %}
+      <tr>
+        <td>{{ row.id }}</td>
+          <td>{{ row.createdBy }}</td>
+        <td>{{ row.pemail }}</td>
+        <td>{{ row.pname }}</td>
+        <td>{{ row.pLocP }}</td>
+        <td>{{ row.dLocP }}</td>
+        <td>{{ row.date }}</td>
+        <td>{{ row.pStat }}</td>
+        <td>
+            <form action="#" method="POST">
+  <button class="login100-form-btn" name="id" value={{ row.id }}>Tk. {{ row.amount }}</button>
+    </form>
+
+
+        </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

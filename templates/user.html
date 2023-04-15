@@ -1,0 +1,135 @@
+{% extends "style_base.html" %}
+{% block title %}User Page{% endblock %}
+{% block button1 %}Parcels{% endblock %}
+{% block nav %}Recipient{% endblock %}
+{% block hrefbuton1 %}userParcels{% endblock %}
+{% block button2 %}Payment{% endblock %}
+{% block hrefbuton2 %}payment{% endblock %}
+{% block hrefbuton0 %}user{% endblock %}
+
+{% block content %}
+    <style>
+.containerh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+  margin-top: 100px;
+  margin-left: 20px;
+
+  display: inline-block;
+}
+</style>
+	<div class="containerh badge-pill bg-white ">
+        <div class = "text-left pt-3" style="    margin-right: 20px;
+    margin-left: 20px">
+                <h4>Welcome</h4>
+        		<h1> {{ name }}</h1>
+    </div>
+
+	</div>
+    <div class="container rounded bg-white">
+        <h4 style="margin-bottom: 20px; margin-top: 20px;" >Parcels To Receive</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+          <th>Sent From</th>
+        <th>Email</th>
+        <th>Parcel Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th>
+          <th>Status</th>
+          <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in queer %}
+      <tr>
+
+        <td>{{ row.id }}</td>
+      <td>{{ row.createdBy }}</td>
+        <td>{{ row.pemail }}</td>
+        <td>{{ row.pname }}</td>
+        <td>{{ row.pLocP }}</td>
+        <td>{{ row.dLocP }}</td>
+        <td>{{ row.date }}</td>
+        <td>
+            {% if row.pStat == "Dispatched" %}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  {{ row.pStat }}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=79.80468750000001%2C19.05173366503917%2C98.15185546875001%2C28.23664944401447&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/>
+<small><a href="https://www.openstreetmap.org/#map=7/23.725/88.978">View Larger Map</a></small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {% else %}
+                {{ row.pStat }}
+        {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </td>
+          {% if row.paystat==1 %}
+          <td>PAID</td>
+              {% else %}
+              <td>Tk. {{ row.amount }}</td>
+          {% endif %}
+
+
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+
+{% endblock %}

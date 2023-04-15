@@ -1,0 +1,69 @@
+{% extends "style_base.html" %}
+{% block title %}Merchant Page{% endblock %}
+{% block button1 %}Add Pacel{% endblock %}
+{% block nav %}Merchant{% endblock %}
+{% block hrefbuton1 %}parceladd{% endblock %}
+{% block hrefbuton0 %}merchant{% endblock %}
+{% block button2 %}Parcels{% endblock %}
+{% block hrefbuton2 %}parcels{% endblock %}
+{% block content %}
+<div class="container rounded bg-white">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Parcel Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th>
+          <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in queer %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.pemail }}</td>
+        <td>{{ row.pname }}</td>
+        <td>{{ row.pLocP }}</td>
+        <td>{{ row.dLocP }}</td>
+        <td>{{ row.date }}</td>
+        <td>            {% if row.pStat == "Dispatched" %}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  {{ row.pStat }}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=79.80468750000001%2C19.05173366503917%2C98.15185546875001%2C28.23664944401447&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/>
+<small><a href="https://www.openstreetmap.org/#map=7/23.725/88.978">View Larger Map</a></small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {% else %}
+                {{ row.pStat }}
+        {% endif %}</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>{% block title %}{% endblock %}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-fjkj2c6OoBCxwt0eCH4o4AnR4cN8zF1mkEi1HtkpS5o5+n5esg/3MX42vpYwKdVbSD/+g3qREnQ9XclKRUrR7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename = "images/icons/favicon.ico") }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename =  "fonts/font-awesome-4.7.0/css/font-awesome.min.css" )}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename =  "vendor/animate/animate.css" )}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename =  "vendor/css-hamburgers/hamburgers.min.css" )}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename =  "vendor/select2/select2.min.css" )}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = "css/util.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = "css/main.css") }}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% block hrefbuton0 %}{% endblock %}">{% block nav %}{% endblock %}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% block hrefbuton1 %}{% endblock %}">{% block button1 %}{% endblock %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% block hrefbuton2 %}{% endblock %}">{% block button2 %}{% endblock %}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="logout" tabindex="-1" aria-disabled="true">Logout</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="container-login100">
+
+    {% block content %}
+    {% endblock %}
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-Fp6z26v6hL9C9c9IO8TZKx07NRQn4YBd4ykQZrgzUKtvRbRZMz5D5EhXq3xg5MS5VDtOYHtKcyNwo3qWmOWzJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--===============================================================================================-->
+
+	<script src="{{url_for('static', filename =  "vendor/jquery/jquery-3.2.1.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename =  "vendor/bootstrap/js/popper.js") }}"></script>
+	<script src="{{url_for('static', filename =  "vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename =  "vendor/select2/select2.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename =  "vendor/tilt/tilt.jquery.min.js") }}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename =  "js/main.js") }}"></script>
+
+</body>
+</html>
